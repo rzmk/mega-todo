@@ -4,4 +4,9 @@ table, th {
 
 th {
     margin: 0 5px;
+    font-family: 'PT Sans', sans-serif;
+}
+
+h1 {
+    font-family: 'Jost', sans-serif;
 }
