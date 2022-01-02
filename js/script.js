@@ -1,4 +1,3 @@
-// var let const 
 const table = document.getElementById('assignmentsTable');
 let baseRow = document.getElementById("baseRow");
 
