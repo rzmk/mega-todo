@@ -1,0 +1,52 @@
+<!DOCTYPE html> <!-- Indicates the HTML version used -->
+<html lang="en">
+
+<head>
+    <title>Mega Todo</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <h1 align="center">Mega Todo</h1>
+    <table id="assignmentsTable" align="center">
+        <tr>
+            <th>Assignment Name</th>
+            <th>Class</th>
+            <th>Due Date</th>
+            <th>Due Time</th>
+            <th>Priority</th>
+            <th>Estimated Time</th>
+            <th>Status</th>
+        </tr>
+        <tr id="baseRow">
+            <th><input type="text" /></th> <!-- Input -->
+            <th> <select id="cityname">
+                    <option value="Boston">
+                    <option value="Cambridge">Discrete Structures
+                </select></th> <!-- Inputtable dropdown -->
+            <th> <input type="date" name="" id=""> </th> <!-- Calendar -->
+            <th> <input type="time" name="" id=""> </th>
+            <th><select id="priority">
+                    <option value="high">High
+                    <option value="medium">Medium
+                    <option value="low">Low
+                </select></th> <!-- Inputtable dropdown -->
+            </th>
+            <th><input type="text" name="" id=""></th>
+            <th>
+                <select id="status">
+                    <option value="complete">Complete
+                    <option value="working">Working On
+                    <option value="just-started">Just Started
+                    <option value="not-started">Not Started
+                </select>
+            </th> <!-- Inputtable dropdown -->
+            </th>
+        </tr>
+    </table>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
+
+<!-- Sorting -->
