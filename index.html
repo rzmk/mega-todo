@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jost&family=PT+Sans&display=swap" rel="stylesheet">  
+    <link href="https://fonts.googleapis.com/css2?family=Jost&family=PT+Sans&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -22,31 +22,36 @@
             <th>Status</th>
         </tr>
         <tr id="baseRow">
-            <th><input type="text" /></th> <!-- Input -->
-            <th> <select id="cityname">
-                    <option value="Boston">
-                    <option value="Cambridge">Discrete Structures
-                </select></th> <!-- Inputtable dropdown -->
-            <th> <input type="date" name="" id=""> </th> <!-- Calendar -->
-            <th> <input type="time" name="" id=""> </th>
-            <th><select id="priority">
+            <td id="assignmentCell"><input class="assignmentName" type="text" /></td> <!-- Input -->
+            <td> <select id="cityname" class="className">
+                    <option value="Discrete Structures">Discrete Structures
+                </select></td>
+            <td> <input type="date" name="" id="" class="dateinput"> </td> <!-- Calendar -->
+            <td> <input type="time" name="" id="" class="timeinput"> </td>
+            <td><select id="priority" class="priorityInput">
                     <option value="high">High
                     <option value="medium">Medium
                     <option value="low">Low
-                </select></th> <!-- Inputtable dropdown -->
-            </th>
-            <th><input type="text" name="" id=""></th>
-            <th>
-                <select id="status">
-                    <option value="complete">Complete
-                    <option value="working">Working On
-                    <option value="just-started">Just Started
-                    <option value="not-started">Not Started
                 </select>
-            </th> <!-- Inputtable dropdown -->
-            </th>
+            </td> <!-- Inputtable dropdown -->
+
+            <td><input type="text" name="" id="" class="estimatedTimeInput"></td>
+            <td>
+                <select id="status" class="status">
+                    <option value="Complete">Complete
+                    <option value="Working">Working On
+                    <option value="Just Started">Just Started
+                    <option value="Not Started">Not Started
+                </select>
+            </td> <!-- Inputtable dropdown -->
+
+
+
         </tr>
     </table>
+    <center>
+        <button class="buttonInsert">Insert</button>
+    </center>
     <script src="js/script.js"></script>
 </body>
 

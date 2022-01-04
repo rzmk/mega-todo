@@ -1,12 +1,32 @@
-table, th {
+table, th, td {
     border: 1px solid black;
 }
 
-th {
+th, td {
     margin: 0 5px;
     font-family: 'PT Sans', sans-serif;
 }
 
 h1 {
     font-family: 'Jost', sans-serif;
+}
+
+button {
+    margin-top: 10px;
+    padding: 12px 50px;
+    border-radius: 10px;
+    border: none;
+    background-color: dodgerblue;
+    color: white;
+    font-family: 'PT Sans', sans-serif;
+
+}
+
+button:hover {
+    cursor: pointer;
+    box-shadow: 1px 1px 8px grey;
+}
+
+button:active {
+    box-shadow: 1px 4px 8px grey;
 }
