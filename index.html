@@ -23,9 +23,14 @@
         </tr>
         <tr id="baseRow">
             <td id="assignmentCell"><input class="assignmentName" type="text" /></td> <!-- Input -->
-            <td> <select id="cityname" class="className">
-                    <option value="Discrete Structures">Discrete Structures
-                </select></td>
+            <td> 
+                <input type="text" name="product" list="productName"/>
+                <datalist id="productName">
+                    <option value="Math">Math</option>
+                    <option value="Science">Science</option>
+                    <option value="English">English</option>
+                </datalist>
+                </td>  
             <td> <input type="date" name="" id="" class="dateinput"> </td> <!-- Calendar -->
             <td> <input type="time" name="" id="" class="timeinput"> </td>
             <td><select id="priority" class="priorityInput">
