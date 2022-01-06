@@ -23,6 +23,15 @@ buttonInsert.addEventListener('click', function () {
         cell5.innerText = document.querySelector('.priorityInput').value;
         cell6.innerText = document.querySelector('.estimatedTimeInput').value;
         cell7.innerText = document.querySelector('.status').value;
+
+
+        var ele = document.createElement("OPTION");
+        ele.setAttribute("value", document.querySelector('.className').value);
+        var par = document.createTextNode(document.querySelector('.className').value);
+        ele.appendChild(par);
+        document.querySelector("#citynames").appendChild(ele);
+
+
         document.querySelector('.assignmentName').value = '';
         document.querySelector('.className').value = '';
         document.querySelector('.dateinput').value = '';
@@ -30,6 +39,7 @@ buttonInsert.addEventListener('click', function () {
         document.querySelector('.priorityInput').value = '';
         document.querySelector('.estimatedTimeInput').value = '';
         document.querySelector('.status').value = '';
+
 
         rowNo++;
     }
