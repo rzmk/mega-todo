@@ -23,12 +23,23 @@
         </tr>
         <tr id="baseRow">
             <td id="assignmentCell"><input class="assignmentName" type="text" /></td> <!-- Input -->
+
             <td>
                 <input list="citynames" name="cityname" id="cityname" class="className">
                 <datalist id="citynames" class="DataList">
-                    
+
                 </datalist>
             </td>
+
+            <td>
+                <input list="Classes" type="text" name="class section" class="className">
+                <datalist id="Classes">
+                    <option value="Math">Math</option>
+                    <option value="Science">Science</option>
+                    <option value="English">English</option>
+                </datalist>
+            </td>
+
             <td> <input type="date" name="" id="" class="dateinput"> </td> <!-- Calendar -->
             <td> <input type="time" name="" id="" class="timeinput"> </td>
             <td><select id="priority" class="priorityInput">
@@ -41,10 +52,10 @@
             <td><input type="text" name="" id="" class="estimatedTimeInput"></td>
             <td>
                 <select id="status" class="status">
-                    <option value="Complete">Complete
-                    <option value="Working">Working On
-                    <option value="Just Started">Just Started
                     <option value="Not Started">Not Started
+                    <option value="Just Started">Just Started
+                    <option value="Working">Working On
+                    <option value="Complete">Complete
                 </select>
             </td> <!-- Inputtable dropdown -->
 
