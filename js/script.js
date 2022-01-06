@@ -29,7 +29,8 @@ buttonInsert.addEventListener('click', function () {
         ele.setAttribute("value", document.querySelector('.className').value);
         var par = document.createTextNode(document.querySelector('.className').value);
         ele.appendChild(par);
-        document.querySelector("#citynames").appendChild(ele);
+
+        document.querySelector("#classes").appendChild(ele);
 
 
         document.querySelector('.assignmentName').value = '';
