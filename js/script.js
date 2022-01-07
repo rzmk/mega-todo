@@ -39,7 +39,7 @@ buttonInsert.addEventListener('click', function () {
         }
         if (flag === 0) {
             dataSetArray.push(valueOfClassName);
-            var ele = document.createElement("OPTION"); var ele = document.createElement("OPTION");
+            var ele = document.createElement("OPTION");
             ele.setAttribute("value", valueOfClassName);
             var par = document.createTextNode(valueOfClassName);
             ele.appendChild(par);
