@@ -10,8 +10,8 @@
 </head>
 
 <body>
-    <h1 align="center">Mega Todo</h1>
-    <table id="assignmentsTable" align="center">
+    <h1>Mega Todo</h1>
+    <table id="assignmentsTable">
         <tr>
             <th>Assignment Name</th>
             <th>Class</th>
@@ -23,14 +23,18 @@
         </tr>
         <tr id="baseRow">
             <td id="assignmentCell"><input class="assignmentName" type="text" /></td> <!-- Input -->
-            <td> 
-                <input list="Classes" type="text" name="class section"  class="className">
-                <datalist id="Classes">
+
+            <td>
+                <input list="classes" class="className">
+                <datalist id="classes" class="DataList">
                     <option value="Math">Math</option>
                     <option value="Science">Science</option>
                     <option value="English">English</option>
                 </datalist>
-                </td>  
+            </td>
+
+
+
             <td> <input type="date" name="" id="" class="dateinput"> </td> <!-- Calendar -->
             <td> <input type="time" name="" id="" class="timeinput"> </td>
             <td><select id="priority" class="priorityInput">
