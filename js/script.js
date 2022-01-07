@@ -2,11 +2,17 @@ const table = document.querySelector('#assignmentsTable');
 const buttonInsert = document.querySelector('.buttonInsert');
 var allInputs = document.querySelectorAll('input');
 var rowNo = 2;
+var dataSetArray = ['Math', 'Science', 'English'];
+
+
 buttonInsert.addEventListener('click', function () {
+    var flag = 0;
     if (document.querySelector('.assignmentName').value == "" || document.querySelector('.className').value == "" || document.querySelector('.dateinput').value == "" || document.querySelector('.timeinput').value == "" || document.querySelector('.priorityInput').value == "" || document.querySelector('.estimatedTimeInput').value == "" || document.querySelector('.status').value == "") {
         alert("Please fill in all the details!!!")
     }
     else {
+        var valueOfClassName = document.querySelector('.className').value;
+
         var row = table.insertRow(rowNo)
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
@@ -25,12 +31,20 @@ buttonInsert.addEventListener('click', function () {
         cell7.innerText = document.querySelector('.status').value;
 
 
-        var ele = document.createElement("OPTION");
-        ele.setAttribute("value", document.querySelector('.className').value);
-        var par = document.createTextNode(document.querySelector('.className').value);
-        ele.appendChild(par);
+        for (let i = 0; i < dataSetArray.length; i++) {
+            if (String(dataSetArray[i]) === String(valueOfClassName)) {
+                flag = 1;
+            }
 
-        document.querySelector("#classes").appendChild(ele);
+        }
+        if (flag === 0) {
+            dataSetArray.push(valueOfClassName);
+            var ele = document.createElement("OPTION"); var ele = document.createElement("OPTION");
+            ele.setAttribute("value", valueOfClassName);
+            var par = document.createTextNode(valueOfClassName);
+            ele.appendChild(par);
+            document.querySelector("#classes").appendChild(ele);
+        }
 
 
         document.querySelector('.assignmentName').value = '';
