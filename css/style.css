@@ -1,36 +1,45 @@
-table, th, td {
-    border: 1px solid black;
+table,
+th,
+td {
+	border: 1px solid black;
 }
 
-th, td {
-    margin: 0 5px;
-    font-family: 'PT Sans', sans-serif;
+th,
+td {
+	margin: 0 5px;
+	font-family: "PT Sans", sans-serif;
 }
 
 h1 {
-    font-family: 'Jost', sans-serif;
-    text-align: center;
-}
-table{
-    margin-left: auto;
-    margin-right: auto;
-}
-button {
-    margin-top: 10px;
-    padding: 12px 50px;
-    border-radius: 10px;
-    border: none;
-    background-color: dodgerblue;
-    color: white;
-    font-family: 'PT Sans', sans-serif;
-
+	font-family: "Jost", sans-serif;
+	text-align: center;
 }
 
-button:hover {
-    cursor: pointer;
-    box-shadow: 1px 1px 8px grey;
+table {
+	margin-left: auto;
+	margin-right: auto;
 }
 
-button:active {
-    box-shadow: 1px 4px 8px grey;
+.buttonDiv {
+	justify-content: center;
+	display: flex;
+}
+
+#buttonInsert {
+	margin-top: 10px;
+	padding: 0.6rem 2rem;
+	border-radius: 10px;
+	border: none;
+	background-color: dodgerblue;
+	color: white;
+	font-family: "PT Sans", sans-serif;
+}
+
+#buttonInsert:hover {
+	cursor: pointer;
+	box-shadow: 1px 1px 8px grey;
+}
+
+#buttonInsert:active {
+	box-shadow: 1px 4px 8px grey;
 }

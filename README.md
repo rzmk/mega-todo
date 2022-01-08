@@ -1,6 +1,6 @@
 # Mega Todo
 
-A simple todo list for your projects.
+A simple todo list for your assignments.
 
 Contributors:
 

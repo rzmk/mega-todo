@@ -1,9 +1,14 @@
-<!DOCTYPE html> <!-- Indicates the HTML version used -->
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mega Todo</title>
+    <!-- Main CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <!-- Font styles -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost&family=PT+Sans&display=swap" rel="stylesheet">
@@ -12,6 +17,7 @@
 <body>
     <h1>Mega Todo</h1>
     <table id="assignmentsTable">
+        <!-- Headers -->
         <tr>
             <th>Assignment Name</th>
             <th>Class</th>
@@ -21,30 +27,31 @@
             <th>Estimated Time</th>
             <th>Status</th>
         </tr>
+        <!-- Assignment input row -->
         <tr id="baseRow">
-            <td id="assignmentCell"><input class="assignmentName" type="text" /></td> <!-- Input -->
-
+            <!-- Assignment Name -->
+            <td id="assignmentCell"><input class="assignmentName" type="text" /></td>
+            <!-- Class -->
             <td>
                 <input list="classes" class="className">
                 <datalist id="classes" class="DataList">
-                    <option value="Math">Math</option>
-                    <option value="Science">Science</option>
-                    <option value="English">English</option>
+                    <!-- <option value="Math">Math</option> -->
                 </datalist>
             </td>
-
-
-
-            <td> <input type="date" name="" id="" class="dateinput"> </td> <!-- Calendar -->
+            <!-- Due Date -->
+            <td> <input type="date" name="" id="" class="dateinput"> </td>
+            <!-- Due Time -->
             <td> <input type="time" name="" id="" class="timeinput"> </td>
+            <!-- Priority -->
             <td><select id="priority" class="priorityInput">
                     <option value="high">High
                     <option value="medium">Medium
                     <option value="low">Low
                 </select>
-            </td> <!-- Inputtable dropdown -->
-
+            </td>
+            <!-- Estimated Time -->
             <td><input type="text" name="" id="" class="estimatedTimeInput"></td>
+            <!-- Status -->
             <td>
                 <select id="status" class="status">
                     <option value="Not Started">Not Started
@@ -52,18 +59,15 @@
                     <option value="Working">Working On
                     <option value="Complete">Complete
                 </select>
-            </td> <!-- Inputtable dropdown -->
-
-
-
+            </td>
         </tr>
     </table>
-    <center>
-        <button class="buttonInsert">Insert</button>
-    </center>
+    <!-- Add/Insert todo button -->
+    <div class="buttonDiv">
+        <button id="buttonInsert">Insert</button>
+    </div>
+    <!-- Main JS -->
     <script src="js/script.js"></script>
 </body>
 
 </html>
-
-<!-- Sorting -->
