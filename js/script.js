@@ -1,5 +1,6 @@
 const table = document.querySelector("#assignmentsTable");
 const buttonInsert = document.querySelector("#buttonInsert");
+const buttonClear = document.querySelector("#buttonClear");
 let allInputs = document.querySelectorAll("input");
 let rowNo = 2;
 const classes = [];
@@ -7,7 +8,46 @@ const classes = [];
 // Default due time value
 document.querySelector(".timeinput").value = "23:59";
 
-// Add event listener to button
+// Add each index from local storage to the table
+let index = 0;
+for (let i = localStorage.length - 1; i >= 0; i--) {
+	currentRowString = localStorage.getItem(i);
+	currentRow = JSON.parse(currentRowString);
+
+	// Create a new row and add it to the table
+	let newRow = table.insertRow(2);
+	let Cell1 = newRow.insertCell(0);
+	let Cell2 = newRow.insertCell(1);
+	let Cell3 = newRow.insertCell(2);
+	let Cell4 = newRow.insertCell(3);
+	let Cell5 = newRow.insertCell(4);
+	let Cell6 = newRow.insertCell(5);
+	let Cell7 = newRow.insertCell(6);
+
+	Cell1.innerText = currentRow.assignmentName;
+	Cell2.innerText = currentRow.className;
+	Cell3.innerText = currentRow.dueDate;
+	Cell4.innerText = currentRow.dueTime;
+	Cell5.innerText = currentRow.priority;
+	Cell6.innerText = currentRow.estimatedTime;
+	Cell7.innerText = currentRow.status;
+}
+
+// Add all classes to the dropdown menu
+for (let i = 0; i < localStorage.length; i++) {
+	let currentRowString = localStorage.getItem(i);
+	let currentRow = JSON.parse(currentRowString);
+	if (!classes.includes(currentRow.className)) {
+		classes.push(currentRow.className);
+		let newOptionElement = document.createElement("OPTION");
+		newOptionElement.setAttribute("value", currentRow.className);
+		let par = document.createTextNode(currentRow.className);
+		newOptionElement.appendChild(par);
+		document.querySelector("#classes").appendChild(newOptionElement);
+	}
+}
+
+// Add event listener to insert button
 buttonInsert.addEventListener("click", () => {
 	let allInputsFilled = true; // allInputsFilled to check if all inputs are filled
 	let duplicateClass = false; // duplicateClass to check if the class is already in the table
@@ -57,6 +97,18 @@ buttonInsert.addEventListener("click", () => {
 			document.querySelector("#classes").appendChild(newOptionElement);
 		}
 
+		// Add row to local storage
+		let assignment = {
+			assignmentName: document.querySelector(".assignmentName").value,
+			className: document.querySelector(".className").value,
+			dueDate: document.querySelector(".dateinput").value,
+			dueTime: document.querySelector(".timeinput").value,
+			priority: document.querySelector(".priorityInput").value,
+			estimatedTime: document.querySelector(".estimatedTimeInput").value,
+			status: document.querySelector(".status").value,
+		};
+		localStorage.setItem(localStorage.length, JSON.stringify(assignment));
+
 		// Reset the inputs to default values
 		document.querySelector(".assignmentName").value = "";
 		document.querySelector(".className").value = "";
@@ -64,7 +116,23 @@ buttonInsert.addEventListener("click", () => {
 		document.querySelector(".timeinput").value = "23:59";
 		document.querySelector(".estimatedTimeInput").value = "";
 		document.querySelector(".status").value = "Not Started";
-
-		rowNo++;
 	}
+});
+
+// Add event listener to clear button
+buttonClear.addEventListener("click", () => {
+	// Clear local storage
+	localStorage.clear();
+	// Clear the table
+	while (table.rows.length > 2) {
+		table.deleteRow(2);
+	}
+	// Clear the dropdown menu
+	while (document.querySelector("#classes").firstChild) {
+		document
+			.querySelector("#classes")
+			.removeChild(document.querySelector("#classes").firstChild);
+	}
+	// Reset the classes array
+	classes.length = 0;
 });
