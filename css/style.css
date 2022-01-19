@@ -25,21 +25,28 @@ table {
 	display: flex;
 }
 
-#buttonInsert {
-	margin-top: 10px;
+button {
+	margin: 10px 10px 10px 0px;
 	padding: 0.6rem 2rem;
 	border-radius: 10px;
 	border: none;
-	background-color: dodgerblue;
 	color: white;
 	font-family: "PT Sans", sans-serif;
 }
 
-#buttonInsert:hover {
+#buttonInsert {
+	background-color: dodgerblue;
+}
+
+#buttonClear {
+	background-color: crimson;
+}
+
+button:hover {
 	cursor: pointer;
 	box-shadow: 1px 1px 8px grey;
 }
 
-#buttonInsert:active {
+button:active {
 	box-shadow: 1px 4px 8px grey;
 }
