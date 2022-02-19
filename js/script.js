@@ -7,6 +7,8 @@ const classes = [];
 
 // Default due time value
 document.querySelector(".timeinput").value = "23:59";
+// Default due date value (today)
+document.querySelector(".dateinput").value = new Date().toISOString().substring(0, 10);
 
 // Add each index from local storage to the table
 let index = 0;
@@ -112,7 +114,8 @@ buttonInsert.addEventListener("click", () => {
 		// Reset the inputs to default values
 		document.querySelector(".assignmentName").value = "";
 		document.querySelector(".className").value = "";
-		document.querySelector(".dateinput").value = "";
+		document.querySelector(".dateinput").value = new Date().toISOString().substring(0, 10);
+
 		document.querySelector(".timeinput").value = "23:59";
 		document.querySelector(".estimatedTimeInput").value = "";
 		document.querySelector(".status").value = "Not Started";
