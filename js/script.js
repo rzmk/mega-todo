@@ -1,6 +1,7 @@
 const table = document.querySelector("#assignmentsTable");
 const buttonInsert = document.querySelector("#buttonInsert");
 const buttonClear = document.querySelector("#buttonClear");
+const buttonDelete = document.querySelectorAll("#buttonDelete");
 let allInputs = document.querySelectorAll("input");
 let rowNo = 2;
 const classes = [];
@@ -10,6 +11,13 @@ document.querySelector(".timeinput").value = "23:59";
 // Default due date value (today)
 document.querySelector(".dateinput").value = new Date().toISOString().substring(0, 10);
 
+// Deleting a table row and from local storage
+const deleteRow = (index) => {
+	let row = table.rows[index];
+	row.parentNode.removeChild(row);
+	localStorage.removeItem(index);
+};
+
 // Add each index from local storage to the table
 let index = 0;
 for (let i = localStorage.length - 1; i >= 0; i--) {
@@ -18,21 +26,34 @@ for (let i = localStorage.length - 1; i >= 0; i--) {
 
 	// Create a new row and add it to the table
 	let newRow = table.insertRow(2);
-	let Cell1 = newRow.insertCell(0);
-	let Cell2 = newRow.insertCell(1);
-	let Cell3 = newRow.insertCell(2);
-	let Cell4 = newRow.insertCell(3);
-	let Cell5 = newRow.insertCell(4);
-	let Cell6 = newRow.insertCell(5);
-	let Cell7 = newRow.insertCell(6);
+	let cell1 = newRow.insertCell(0);
+	let cell2 = newRow.insertCell(1);
+	let cell3 = newRow.insertCell(2);
+	let cell4 = newRow.insertCell(3);
+	let cell5 = newRow.insertCell(4);
+	let cell6 = newRow.insertCell(5);
+	let cell7 = newRow.insertCell(6);
+	let cell8 = newRow.insertCell(7);
 
-	Cell1.innerText = currentRow.assignmentName;
-	Cell2.innerText = currentRow.className;
-	Cell3.innerText = currentRow.dueDate;
-	Cell4.innerText = currentRow.dueTime;
-	Cell5.innerText = currentRow.priority;
-	Cell6.innerText = currentRow.estimatedTime;
-	Cell7.innerText = currentRow.status;
+	cell1.innerText = currentRow.assignmentName;
+	cell2.innerText = currentRow.className;
+	cell3.innerText = currentRow.dueDate;
+	cell4.innerText = currentRow.dueTime;
+	cell5.innerText = currentRow.priority;
+	cell6.innerText = currentRow.estimatedTime;
+	cell7.innerText = currentRow.status;
+	// Add input of type button to cell8
+	let deleteButton = document.createElement("input");
+	deleteButton.setAttribute("type", "button");
+	deleteButton.setAttribute("value", "❌");
+	deleteButton.setAttribute("id", "buttonDelete");
+	cell8.appendChild(deleteButton);
+	// Get parent of delete button
+	let parentRow = deleteButton.parentNode.parentNode;
+	// Add event listener to delete button to delete row and remove from local storage
+	deleteButton.addEventListener("click", () => {
+		deleteRow(parentRow.rowIndex);
+	});
 }
 
 // Add all classes to the dropdown menu
@@ -72,6 +93,7 @@ buttonInsert.addEventListener("click", () => {
 		let cell5 = row.insertCell(4);
 		let cell6 = row.insertCell(5);
 		let cell7 = row.insertCell(6);
+		let cell8 = row.insertCell(7);
 
 		cell1.innerText = document.querySelector(".assignmentName").value;
 		cell2.innerText = document.querySelector(".className").value;
@@ -80,7 +102,18 @@ buttonInsert.addEventListener("click", () => {
 		cell5.innerText = document.querySelector(".priorityInput").value;
 		cell6.innerText = document.querySelector(".estimatedTimeInput").value;
 		cell7.innerText = document.querySelector(".status").value;
-
+		// Add input of type button to cell8
+		let deleteButton = document.createElement("input");
+		deleteButton.setAttribute("type", "button");
+		deleteButton.setAttribute("value", "❌");
+		deleteButton.setAttribute("id", "buttonDelete");
+		cell8.appendChild(deleteButton);
+		// Get parent of delete button
+		let parentRow = deleteButton.parentNode.parentNode;
+		// Add event listener to delete button to delete row and remove from local storage
+		deleteButton.addEventListener("click", () => {
+			deleteRow(parentRow.rowIndex);
+		});
 		// Check if the class is already in the table
 		let classNameInput = document.querySelector(".className").value;
 		for (let i = 0; i < classes.length; i++) {
@@ -115,7 +148,6 @@ buttonInsert.addEventListener("click", () => {
 		document.querySelector(".assignmentName").value = "";
 		document.querySelector(".className").value = "";
 		document.querySelector(".dateinput").value = new Date().toISOString().substring(0, 10);
-
 		document.querySelector(".timeinput").value = "23:59";
 		document.querySelector(".estimatedTimeInput").value = "";
 		document.querySelector(".status").value = "Not Started";
