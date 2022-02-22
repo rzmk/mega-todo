@@ -1,5 +1,8 @@
-:root {
-	zoom: 175%;
+/* Media query for mobile devices */
+@media screen and (min-width: 768px) {
+	:root {
+		zoom: 175%;
+	}
 }
 
 table,
@@ -22,6 +25,10 @@ h1 {
 table {
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.timeinput {
+	width: 5.8rem;
 }
 
 .buttonDiv {
