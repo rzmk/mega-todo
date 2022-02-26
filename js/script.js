@@ -70,6 +70,22 @@ for (let i = 0; i < localStorage.length; i++) {
 	}
 }
 
+// Convert 24-hour time to 12-hour time and add AM/PM to the end
+const convertTime = (time) => {
+	let timeArray = time.split(":");
+	let hour = timeArray[0];
+	const minute = timeArray[1];
+	let ampm = "AM";
+	if (hour > 12) {
+		hour = hour - 12;
+		ampm = "PM";
+	} else if (hour == 12) {
+		ampm = "PM";
+	}
+	let timeString = hour + ":" + minute + " " + ampm;
+	return timeString;
+};
+
 // Add event listener to insert button
 buttonInsert.addEventListener("click", () => {
 	let allInputsFilled = true; // allInputsFilled to check if all inputs are filled
@@ -98,7 +114,8 @@ buttonInsert.addEventListener("click", () => {
 		cell1.innerText = document.querySelector(".assignmentName").value;
 		cell2.innerText = document.querySelector(".className").value;
 		cell3.innerText = document.querySelector(".dateinput").value;
-		cell4.innerText = document.querySelector(".timeinput").value;
+		// Convert 24 hour time to 12 hour time (23:59 -> 11:59 PM)
+		cell4.innerText = convertTime(document.querySelector(".timeinput").value);
 		cell5.innerText = document.querySelector(".priorityInput").value;
 		cell6.innerText = document.querySelector(".estimatedTimeInput").value;
 		cell7.innerText = document.querySelector(".status").value;
@@ -137,7 +154,7 @@ buttonInsert.addEventListener("click", () => {
 			assignmentName: document.querySelector(".assignmentName").value,
 			className: document.querySelector(".className").value,
 			dueDate: document.querySelector(".dateinput").value,
-			dueTime: document.querySelector(".timeinput").value,
+			dueTime: convertTime(document.querySelector(".timeinput").value),
 			priority: document.querySelector(".priorityInput").value,
 			estimatedTime: document.querySelector(".estimatedTimeInput").value,
 			status: document.querySelector(".status").value,
